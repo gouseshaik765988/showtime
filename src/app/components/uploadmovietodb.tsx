@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const PieChart = dynamic(
     () => import("@mui/x-charts/PieChart").then((mod) => mod.PieChart),
@@ -639,16 +640,13 @@ export default function UploadMovies() {
                                                     }}
                                                 >
                                                     {/* Poster */}
-                                                    <img
+                                                    <Image
                                                         src={movie.poster}
                                                         alt={movie.moviename}
-                                                        style={{
-                                                            width: "60px",
-                                                            height: "85px",
-                                                            objectFit: "cover",
-                                                            borderRadius: "6px",
-                                                            overflow: "hidden",
-                                                        }}
+                                                        width={60}
+                                                        height={85}
+                                                        style={{ borderRadius: "6px" }}
+                                                        unoptimized
                                                     />
 
                                                     {/* Movie Name + Year */}

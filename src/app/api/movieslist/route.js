@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import connectMongo from "../../../lib/connectMongo";
-import Movieslist from "../../../models/Movieslist";
+import Movieslist from "@/models/Movieslist";
+import connectMongo from "@/lib/connectMongo";
 
 export async function GET() {
     await connectMongo();

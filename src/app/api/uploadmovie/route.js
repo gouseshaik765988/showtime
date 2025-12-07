@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import connectMongo from "../../../lib/connectMongo";
-import Movieslist from "../../../models/Movieslist";
-import cloudinary from "../../../lib/cloudinary";
+import Movieslist from "@/models/Movieslist";
+import connectMongo from "@/lib/connectMongo";
+import cloudinary from "@/lib/cloudinary";
 
 export async function POST(req) {
     try {
