@@ -13,10 +13,7 @@ const PieChart = dynamic(
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // --- Embedded Data (No external file needed)
-interface UsageData {
-    name: string;
-    value: number;
-}
+
 const valueFormatter = (item: any) => `${item.value}%`;
 
 import {
