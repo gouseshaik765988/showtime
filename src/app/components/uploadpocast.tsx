@@ -12,10 +12,7 @@ const PieChart = dynamic(
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // --- Embedded Data (No external file needed)
-interface UsageData {
-    name: string;
-    value: number;
-}
+
 const valueFormatter = (item: any) => `${item.value}%`;
 
 import {
@@ -42,7 +39,7 @@ function TabPanel({ children, value, index }: any) {
     );
 }
 
-export default function Uploadwebseries() {
+export default function Uploadpodcast() {
 
     const [value, setValue] = useState(0);
 
