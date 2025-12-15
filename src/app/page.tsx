@@ -120,7 +120,7 @@ export default function SidebarLayout() {
         ) : content === "Podcast" ? (
           <Uploadpodcast />
         ) : (
-          <Uploadpodcast />
+          <p>nothing heareeeeeeeeeee</p>
         )}
 
       </Box>
