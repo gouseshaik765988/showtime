@@ -14,6 +14,8 @@ import {
 
 import Uploadmovies from "./components/uploadmovietodb";
 import Uploadwebseries from "./components/uploadwebseries";
+import Uploadpodcast from "./components/uploadpocast";
+
 
 const drawerWidth = 240;
 
@@ -115,9 +117,12 @@ export default function SidebarLayout() {
           <Uploadmovies />
         ) : content === "Webseries" ? (
           <Uploadwebseries />
+        ) : content === "Podcast" ? (
+          <Uploadpodcast />
         ) : (
-          <div>No Content Found</div>
+          <Uploadpodcast />
         )}
+
       </Box>
     </Box>
   );
