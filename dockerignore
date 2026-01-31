@@ -1,0 +1,28 @@
+# Node modules (will be installed in builder)
+node_modules
+npm-debug.log
+
+# Local env files
+.env
+.env.local
+.env.development
+.env.test
+
+# Logs
+logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Next.js build output (will be rebuilt)
+.next
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

@@ -1,0 +1,16 @@
+services:
+  # Lane 1: The older version
+  semi-version:
+    image: showtime:semi-optimized
+    ports:
+      - "3000:3000"  # Access at localhost:3000
+    restart: always
+
+  # Lane 2: The newer version
+  ultra-version:
+    image: showtime:ultra-optimized
+    ports:
+      - "4000:3000"  # Access at localhost:4000
+    restart: always
+O
+

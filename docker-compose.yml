@@ -1,0 +1,49 @@
+services:
+  showtime:
+    image: showtime:semi-optimized
+    # 1. Resource Limits: Prevent the container from crashing your server
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+      # 2. High Availability: Keep 3 'lanes' open at all times
+      replicas: 5
+    
+    # 3. Security: Run as a non-root user (if your Dockerfile supports it)
+    user: "1000:1000"
+    
+    # 4. Networking: No public ports! Only the Load Balancer (Nginx) talks to the app
+    expose:
+      - "3000"
+      
+    env_file: .env
+    
+    # 5. Health Monitoring: Automatically restart if the app hangs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: always
+
+  # 6. Load Balancer: The "Gatekeeper" for the heavy crowd
+  gateway:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+      - "443:443" # For SSL/HTTPS
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - showtime
+    restart: always
+
+  # 7. Log Management: Prevent log files from eating your hard drive
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+   
