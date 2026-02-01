@@ -62,7 +62,7 @@ export default function SidebarLayout() {
               marginTop: "-2px"
             }}
           >
-            Admin Panel
+            Dashboard
           </Typography>
         </Box>
 

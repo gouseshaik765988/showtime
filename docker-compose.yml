@@ -1,0 +1,10 @@
+services:
+  showtime:
+    image: showtime:semi-optimized
+    volumes:
+      - .:/app                  # 1. Maps your local code (hides node_modules)
+      - /app/node_modules        # 2. "Pops" the image's node_modules back on top
+      - /app/.next               # 3. Keeps build cache internal
+    command: npm run dev
+    # ... rest of your config
+
