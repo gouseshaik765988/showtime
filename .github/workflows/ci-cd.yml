@@ -30,14 +30,14 @@ jobs:
           context: .
           push: true
           tags: gouseshaik7570/showtimeapp:latest
-          # Passing MongoDB secrets as Build Arguments
+          # Pass ALL required secrets as build-args
           build-args: |
             MONGO_USER=${{ secrets.MONGODB_USERNAME }}
             MONGO_PASS=${{ secrets.MONGODB_PASSWORD }}
+            MONGODB_URI=${{ secrets.MONGODB_URI }}
 
       - name: Docker Scout Scan
         uses: docker/scout-action@v1
         with:
           command: quickview,cves
           image: gouseshaik7570/showtimeapp:latest
-
