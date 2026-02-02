@@ -1,3 +1,8 @@
+ 
+# ================================
+# STAGE 1 — BUILDER
+# ================================
+FROM node:22-alpine AS builder
 # Declare Arguments
 ARG MONGO_USER
 ARG MONGO_PASS
@@ -5,11 +10,6 @@ ARG MONGO_PASS
 # Convert them to Environment Variables for your App
 ENV MONGO_USER=${MONGO_USER}
 ENV MONGO_PASS=${MONGO_PASS}
-
-# ================================
-# STAGE 1 — BUILDER
-# ================================
-FROM node:22-alpine AS builder
 
 WORKDIR /app
 
