@@ -3,7 +3,7 @@ name: CI-CD Pipeline
 on:
   push:
     branches:
-      - feat/health-check
+      - master
 
 jobs:
   build:
@@ -35,3 +35,4 @@ jobs:
       - name: Push Docker image
         run: |
           docker push gouseshaik7570/showtimeapp:latest
+
