@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+      - feat/health-check
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,17 +24,20 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker image
-        run: |
-          docker build -t gouseshaik7570/showtimeapp:latest .
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: gouseshaik7570/showtimeapp:latest
+          # Passing MongoDB secrets as Build Arguments
+          build-args: |
+            MONGO_USER=${{ secrets.MONGODB_USERNAME }}
+            MONGO_PASS=${{ secrets.MONGODB_PASSWORD }}
 
       - name: Docker Scout Scan
         uses: docker/scout-action@v1
         with:
-          command: quickview
+          command: quickview,cves
           image: gouseshaik7570/showtimeapp:latest
-
-      - name: Push Docker image
-        run: |
-          docker push gouseshaik7570/showtimeapp:latest
 
