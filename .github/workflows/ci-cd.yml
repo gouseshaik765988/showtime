@@ -29,7 +29,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: gouseshaik7570/showtimeapp:latest
+          tags: gouseshaik7570/showtimeapp:v3
           # Pass ALL required secrets as build-args
           build-args: |
             MONGO_USER=${{ secrets.MONGODB_USERNAME }}
